@@ -9,3 +9,15 @@
 <ng-template #elseMessage>
     <h1>testando else</h1>
 </ng-template>
+
+<span [ngSwitch]="test">
+<p *ngSwitchCase="true">
+  test is true
+</p>
+<p *ngSwitchCase="false">
+  test is false
+</p>
+<p *ngSwitchDefault>
+  ngDefault
+</p>
+</span>
