@@ -1,28 +1,9 @@
-<div *ngFor="let poke of title">
-    <h1>testando {{poke}}</h1>
+<div *ngIf="pkm!==null">
+    <img [src]="pkmFn" alt="pokemon img">
 </div>
-<h1>testando {{back?.dados?.nome?.user}}</h1>
-<!--<h1>testando {{back.dados.nomedd ? "marlon":"ok"}}</h1>-->
-<h1 *ngIf="!test; else elseMessage">
-    testando ngIf
-</h1>
-<ng-template #elseMessage>
-    <h1>testando else</h1>
-</ng-template>
 
-<span [ngSwitch]="test">
-<p *ngSwitchCase="true">
-  test is true
-</p>
-<p *ngSwitchCase="false">
-  test is false
-</p>
-<p *ngSwitchDefault>
-  ngDefault
-</p>
-</span>
 <ul>
-    <li *ngFor="let pokemon of pokedex">
+    <li *ngFor="let pokemon of pokedex" (mouseenter)="pkm = pokemon">
         {{pokemon.name}} {{pokemon.number | number:'3.0'}}
         <img src="//serebii.net/pokedex-xy/icon/{{pokemon.number | number: '3.0'}}.png" />
     </li>
@@ -46,3 +27,26 @@
 <div [style.display]="select.value==2? 'block' :'none'">
     style binding
 </div>
+<div *ngFor="let poke of title">
+    <h1>testando {{poke}}</h1>
+</div>
+<h1>testando {{back?.dados?.nome?.user}}</h1>
+<!--<h1>testando {{back.dados.nomedd ? "marlon":"ok"}}</h1>-->
+<h1 *ngIf="!test; else elseMessage">
+    testando ngIf
+</h1>
+<ng-template #elseMessage>
+    <h1>testando else</h1>
+</ng-template>
+
+<span [ngSwitch]="test">
+<p *ngSwitchCase="true">
+test is true
+</p>
+<p *ngSwitchCase="false">
+test is false
+</p>
+<p *ngSwitchDefault>
+ngDefault
+</p>
+</span>
