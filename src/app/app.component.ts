@@ -17,4 +17,5 @@ export class AppComponent {
     { name: "pokemon", number: 6 },
     { name: "pokemon", number: 7 },
   ];
+  binding = "test.png";
 }
