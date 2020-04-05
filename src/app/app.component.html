@@ -34,3 +34,12 @@
     <div>{{mod}}</div>
     <input type="text" [(ngModel)]="mod" />
 </div>
+<select #select name="select" (change)="select">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+</select>
+
+<div [class.class1]="select.value==1" [class.class2]="select.value==2" [class.class3]="select.value==3" [class.class0]="select.value==0" [class.classMaior]="select.value>=0">
+    test
+</div>
