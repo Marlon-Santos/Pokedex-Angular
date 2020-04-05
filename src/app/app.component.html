@@ -21,3 +21,9 @@
   ngDefault
 </p>
 </span>
+<ul>
+    <li *ngFor="let pokemon of pokedex">
+        {{pokemon.name}} {{pokemon.number | number:'3.0'}}
+        <img src="//serebii.net/pokedex-xy/icon/{{pokemon.number | number: '3.0'}}.png" />
+    </li>
+</ul>
