@@ -29,3 +29,6 @@
 </ul>
 <img [src]="binding" alt="binding alt">
 <input type="button" value="Onclick" (click)="alertHandle()" />
+<div>
+    <input type="text" [value]="back?.dados?.nome?.user" (input)="back?.dados?.nome.user = $event.currentTarget.value" />
+</div>
