@@ -18,4 +18,7 @@ export class AppComponent {
     { name: "pokemon", number: 7 },
   ];
   binding = "test.png";
+  alertHandle(): void {
+    window.alert("event binding");
+  }
 }
