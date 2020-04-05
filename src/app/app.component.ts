@@ -7,6 +7,7 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   test = true;
+  mod = "testNhgModel";
   title = ["pokedex1", "pokedex2", "pokdex3"];
   back = { dados: { nome: { user: "marlon" } } };
   pokedex = [
