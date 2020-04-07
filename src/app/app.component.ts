@@ -2,7 +2,11 @@ import { PokesService } from "./photos/services/pokes.service";
 import { PhotoServiceService } from "./photos/services/photo-service.service";
 import { Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-
+interface repoI {
+  total_count: number;
+  incomplete_results: boolean;
+  items: any[];
+}
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -45,8 +49,10 @@ export class AppComponent {
   getRepo() {
     if (this.saerchText) {
       return this.http
-        .get(`https://api.github.com/search/repositories?q=${this.saerchText}`)
-        .subscribe((response) => (this.result = response["items"]));
+        .get<repoI>(
+          `https://api.github.com/search/repositories?q=${this.saerchText}`
+        )
+        .subscribe((response) => (this.result = response.items));
     }
   }
 }
