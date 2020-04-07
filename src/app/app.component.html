@@ -1,7 +1,7 @@
 <div *ngIf="pkm!==null">
     <img [src]="pkmFn" alt="pokemon img">
 </div>
-
+<input type="search" [(ngModel)]="filter">
 <ul>
     <li *ngFor="let pokemon of pokedex" (mouseenter)="pkm = pokemon">
         {{pokemon.name}} {{pokemon.number | number:'3.0'}}
@@ -50,3 +50,8 @@ test is false
 ngDefault
 </p>
 </span>
+
+<ul *ngFor="let repo of result">
+    <li>name: {{repo.full_name}}</li>
+</ul>
+<input type="search" [(ngModel)]="saerchText" (keyup.enter)="getRepo()">
