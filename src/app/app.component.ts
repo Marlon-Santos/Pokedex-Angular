@@ -1,8 +1,8 @@
 import { PokesService } from "./photos/services/pokes.service";
 import { PhotoServiceService } from "./photos/services/photo-service.service";
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
-interface repoI {
+interface RepoI {
   total_count: number;
   incomplete_results: boolean;
   items: any[];
@@ -21,17 +21,6 @@ export class AppComponent {
     this.photoList = photoService.photoList();
     console.log(this.photoList);
   }
-  emiter = "";
-  onChange(event) {
-    this.emiter = event;
-    console.log(event);
-  }
-  photoList;
-  pkm = null;
-  test = true;
-  mod = "testNhgModel";
-  title = ["pokedex1", "pokedex2", "pokdex3"];
-  back = { dados: { nome: { user: "marlon" } } };
 
   get pkmFn() {
     const link = ("000" + this.pkm.number).slice(-3);
@@ -43,14 +32,26 @@ export class AppComponent {
       return pokemon.name.toLowerCase().includes(this.filter.toLowerCase());
     });
   }
-  filter = "";
 
+  emiter = "";
+  photoList;
+  pkm = null;
+  test = true;
+  mod = "testNhgModel";
+  title = ["pokedex1", "pokedex2", "pokdex3"];
+  back = { dados: { nome: { user: "marlon" } } };
+  filter = "";
+  @ViewChild("input", { static: false }) viewInput: HTMLInputElement;
   binding = "test.png";
+  saerchText = "";
+  result = [];
+  onChange(event) {
+    this.emiter = event;
+    console.log(this.viewInput["nativeElement"].value);
+  }
   alertHandle(): void {
     window.alert("event binding");
   }
-  saerchText = "";
-  result = [];
   getRepo() {
     if (this.saerchText) {
       const params: HttpParams = new HttpParams().set("q", this.saerchText);
@@ -59,7 +60,7 @@ export class AppComponent {
         "JSON"
       );
       return this.http
-        .get<repoI>(`https://api.github.com/search/repositories`, {
+        .get<RepoI>(`https://api.github.com/search/repositories`, {
           params,
           headers,
         })
