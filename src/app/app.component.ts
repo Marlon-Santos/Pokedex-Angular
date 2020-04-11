@@ -1,7 +1,7 @@
 import { PokesService } from "./photos/services/pokes.service";
 import { PhotoServiceService } from "./photos/services/photo-service.service";
 import { Component } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 interface repoI {
   total_count: number;
   incomplete_results: boolean;
@@ -49,8 +49,15 @@ export class AppComponent {
   getRepo() {
     if (this.saerchText) {
       const params: HttpParams = new HttpParams().set("q", this.saerchText);
+      const headers: HttpHeaders = new HttpHeaders().set(
+        "content-type",
+        "JSON"
+      );
       return this.http
-        .get<repoI>(`https://api.github.com/search/repositories`, { params })
+        .get<repoI>(`https://api.github.com/search/repositories`, {
+          params,
+          headers,
+        })
         .subscribe((response) => (this.result = response.items));
     }
   }
