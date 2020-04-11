@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { Subject } from "rxjs";
 @Component({
   selector: "app-photo",
@@ -7,9 +7,9 @@ import { Subject } from "rxjs";
 })
 export class PhotoComponent implements OnInit {
   @Output() testEvent: EventEmitter<string> = new EventEmitter<string>();
+  @Input() nome = "test";
+  @Output() nomeChange = new EventEmitter();
   constructor() {}
 
-  ngOnInit() {
-    this.testEvent.emit("marlon");
-  }
+  ngOnInit() {}
 }

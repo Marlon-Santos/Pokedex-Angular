@@ -22,6 +22,10 @@ export class AppComponent {
     console.log(this.photoList);
   }
   emiter = "";
+  onChange(event) {
+    this.emiter = event;
+    console.log(event);
+  }
   photoList;
   pkm = null;
   test = true;

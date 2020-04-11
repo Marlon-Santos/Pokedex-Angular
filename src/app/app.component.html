@@ -55,5 +55,6 @@ ngDefault
     <li>name: {{repo.full_name}}</li>
 </ul>
 <input type="search" [(ngModel)]="saerchText" (keyup.enter)="getRepo()">
-<app-photo (testEvent)="emiter = $event"></app-photo>
-{{emiter}}
+<app-photo [(nome)]="emiter"></app-photo>
+<div>app-component-{{emiter}}</div>
+<input type="text" (input)="onChange($event.target.value)">
