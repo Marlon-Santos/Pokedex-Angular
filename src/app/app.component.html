@@ -1,3 +1,6 @@
+<textarea [(ngModel)]="edit"></textarea>
+<div [style]="getEdit">Test</div>
+
 <div *ngIf="pkm!==null">
     <img [src]="pkmFn" alt="pokemon img">
 </div>
@@ -55,6 +58,6 @@ ngDefault
     <li>name: {{repo.full_name}}</li>
 </ul>
 <input type="search" [(ngModel)]="saerchText" (keyup.enter)="getRepo()">
-<app-photo [(nome)]="emiter"></app-photo>
+<app-photo [(nome)]="emiter" [class.testando]="true"></app-photo>
 <div>app-component-{{emiter}}</div>
 <input type="text" (input)="onChange($event.target.value)" #input>

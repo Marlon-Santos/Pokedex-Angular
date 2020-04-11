@@ -2,6 +2,7 @@ import { PokesService } from "./photos/services/pokes.service";
 import { PhotoServiceService } from "./photos/services/photo-service.service";
 import { Component, ViewChild } from "@angular/core";
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
+import { DomSanitizer } from "@angular/platform-browser";
 interface RepoI {
   total_count: number;
   incomplete_results: boolean;
@@ -16,7 +17,8 @@ export class AppComponent {
   constructor(
     private photoService: PhotoServiceService,
     private pokesService: PokesService,
-    private http: HttpClient
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {
     this.photoList = photoService.photoList();
     console.log(this.photoList);
@@ -32,7 +34,13 @@ export class AppComponent {
       return pokemon.name.toLowerCase().includes(this.filter.toLowerCase());
     });
   }
-
+  /*get style() {
+    DomSanitizer
+  }*/
+  edit = "";
+  get getEdit() {
+    return this.sanitizer.bypassSecurityTrustStyle(this.edit);
+  }
   emiter = "";
   photoList;
   pkm = null;
