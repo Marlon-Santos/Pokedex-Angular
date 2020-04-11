@@ -21,6 +21,7 @@ export class AppComponent {
     this.photoList = photoService.photoList();
     console.log(this.photoList);
   }
+  emiter = "";
   photoList;
   pkm = null;
   test = true;
