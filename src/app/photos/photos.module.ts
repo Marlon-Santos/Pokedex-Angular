@@ -1,13 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PhotoComponent } from './photo/photo.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { PhotoComponent } from "./photo/photo.component";
+import { ColorRandomDirective } from "./directives/color-random.directive";
 
 @NgModule({
-  declarations: [PhotoComponent],
-  imports: [
-    CommonModule
-  ]
+  declarations: [PhotoComponent, ColorRandomDirective],
+  imports: [CommonModule],
+  exports: [ColorRandomDirective, PhotoComponent],
 })
-export class PhotosModule { }
+export class PhotosModule {}

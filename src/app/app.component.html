@@ -60,4 +60,4 @@ ngDefault
 <input type="search" [(ngModel)]="saerchText" (keyup.enter)="getRepo()">
 <app-photo [(nome)]="emiter" [class.testando]="true"></app-photo>
 <div>app-component-{{emiter}}</div>
-<input type="text" (input)="onChange($event.target.value)" #input>
+<input appColorRandom type="text" (input)="onChange($event.target.value)" #input>
