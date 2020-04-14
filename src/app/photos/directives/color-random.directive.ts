@@ -1,24 +1,11 @@
-import {
-  Directive,
-  ElementRef,
-  OnInit,
-  OnChanges,
-  SimpleChanges,
-  Input,
-} from "@angular/core";
+import { Directive, ElementRef, OnInit, Renderer2 } from "@angular/core";
 
 @Directive({
   selector: "[appColorRandom]",
 })
-export class ColorRandomDirective implements OnInit, OnChanges {
-  constructor(private ref: ElementRef) {}
-  @Input() changeTest = "";
-  ngOnInit() {
-    console.log(this.ref.nativeElement.value);
-    this.changeTest = this.ref.nativeElement.value;
-    this.ref.nativeElement.value = this.changeTest + "->";
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes, "test");
+export class ColorRandomDirective implements OnInit {
+  constructor(private ref: ElementRef, private render: Renderer2) {}
+  ngOnInit(): void {
+    this.render.setStyle(this.ref.nativeElement, "background-color", "orange");
   }
 }
