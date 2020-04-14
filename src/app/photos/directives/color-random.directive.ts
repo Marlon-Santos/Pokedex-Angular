@@ -4,6 +4,7 @@ import {
   OnInit,
   Renderer2,
   HostListener,
+  HostBinding,
 } from "@angular/core";
 
 @Directive({
@@ -11,10 +12,11 @@ import {
 })
 export class ColorRandomDirective implements OnInit {
   constructor(private ref: ElementRef, private render: Renderer2) {}
+  @HostBinding("style.font-size") font;
   ngOnInit(): void {
     this.render.setStyle(this.ref.nativeElement, "background-color", "orange");
   }
   @HostListener("click") Onclick() {
-    alert("HostListener actived");
+    this.font = "20px";
   }
 }
