@@ -58,6 +58,9 @@ ngDefault
     <li>name: {{repo.full_name}}</li>
 </ul>
 <input type="search" [(ngModel)]="saerchText" (keyup.enter)="getRepo()">
-<app-photo [(nome)]="emiter" [class.testando]="true"></app-photo>
+<app-photo [(nome)]="emiter" [class.testando]="true">
+    <p class="header">testando header</p>
+    <p class="footer">testando footer</p>
+</app-photo>
 <div>app-component-{{emiter}}</div>
 <input appColorRandom type="text" (input)="onChange($event.target.value)" #input>
