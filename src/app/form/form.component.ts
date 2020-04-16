@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { getAttrsForDirectiveMatching } from "@angular/compiler/src/render3/view/util";
 
 @Component({
   selector: "app-form",
@@ -8,9 +9,9 @@ import { NgForm } from "@angular/forms";
 })
 export class FormComponent implements OnInit {
   constructor() {}
-
+  form = { name: "marlon", idade: 20, email: "mnet@gft.com", confEmail: "" };
   ngOnInit() {}
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmit() {
+    console.dir(this.form);
   }
 }

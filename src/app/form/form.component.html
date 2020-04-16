@@ -1,17 +1,17 @@
-<form #myForm="ngForm" (submit)="onSubmit(myForm)">
+<form #myForm="ngForm" (submit)="onSubmit()">
     <fieldset>
         <legend>form test</legend>
         <label>nome
-          <input type="name"  name="name"ngModel/>
+          <input type="name"   [(ngModel)]="form.name"  name="name"/>
         </label>
         <label>idade
-          <input type="number" name="number" ngModel />
+          <input type="number"  [(ngModel)]="form.idade" name="number" />
         </label>
         <label>E-mail
-          <input type="email" name="email" ngModel/>
+          <input type="email"  [(ngModel)]="form.email" name="email"/>
         </label>
         <label>Confirmar E-mail
-          <input type="email" name="confEmail"ngModel/>
+          <input type="email"  [(ngModel)]="form.confEmail" name="confEmail"/>
         </label>
         <input type="submit" ngModel/>
     </fieldset>
