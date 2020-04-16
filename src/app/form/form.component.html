@@ -1,0 +1,18 @@
+<form #myForm="ngForm" (submit)="onSubmit(myForm)">
+    <fieldset>
+        <legend>form test</legend>
+        <label>nome
+          <input type="name"  name="name"ngModel/>
+        </label>
+        <label>idade
+          <input type="number" name="number" ngModel />
+        </label>
+        <label>E-mail
+          <input type="email" name="email" ngModel/>
+        </label>
+        <label>Confirmar E-mail
+          <input type="email" name="confEmail"ngModel/>
+        </label>
+        <input type="submit" ngModel/>
+    </fieldset>
+</form>
